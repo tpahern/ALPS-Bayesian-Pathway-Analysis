@@ -1,0 +1,86 @@
+# ----------------------------------------------------------------------
+# --- THE BIOREALM BASH SCRIPT TEMPLATE
+# ----------------------------------------------------------------------
+#
+# --- General Bash Conventions
+#
+#    1. Quote your variables this way: "${ivar}" unless you're sure
+#       it's an integer.
+#    2. Use $(command) instead of backticks. Don't use backticks.
+#    3. [[ ... ]] is preferred over [, test and /usr/bin/[.
+#    4. Put ; do and ; then on the same line as the while, for or if.
+#    5. Eval should be avoided.
+#
+# --- Commenting the script
+#
+# See the actual script template below, since it has built-in examples
+# and instructions.
+#
+# --- Commenting functions
+#
+# Any function that is not both obvious and short must be commented.
+# Any function in a library must be commented regardless of length
+# or complexity.
+# It should be possible for someone else to learn how to use your
+# program or to use a function in your library by reading the comments
+# (and self-help, if provided) without reading the code.
+#
+# All function comments should contain:
+#
+# Description of the function
+# Global variables used and modified
+# Arguments taken
+# Returned values other than the default exit status of the last
+# command run
+#
+# All other variables used in functions and in main should be local.
+# Declaration and assignment should be on different lines.
+#
+# Example:
+#
+# Changes the owner of a given file
+# Globals:
+#   None
+# Args:
+#   $1 = The name of the file
+#   $2 = The user name
+#   $3 = The group name
+# Returns:
+#   None
+#
+# change_owner_of_file() {
+#     local filename
+#     local user
+#     local group
+#
+#     filename=$1
+#     user=$2
+#     group=$3
+#
+#     chown $user:$group $filename
+# }
+#
+# --- Commenting algorithms and code in general
+#
+# Comment tricky, non-obvious, interesting or important parts of your code.
+# Don't comment the obvious in algorithms, but if there's a complex
+# algorithm or you're doing something out of the ordinary, put a
+# short comment in.
+#
+# --- Tools
+#
+# ShellCheck - Online Shell Script Analyzer
+# http://www.shellcheck.net/
+#
+# --- Guides
+#
+# Defensive Bash Programming
+# http://www.kfirlavi.com/blog/2012/11/14/defensive-bash-programming
+#
+# Google's Shell Scripting Guide
+# https://google-styleguide.googlecode.com/svn/trunk/shell.xml
+#
+# The Advanced Bash-Scripting Guide
+# http://tldp.org/LDP/abs/html/index.html
+# ----------------------------------------------------------------------
+#
