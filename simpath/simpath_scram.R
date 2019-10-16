@@ -3,7 +3,7 @@
 library(ggplot2)
 library(survival)
 
-wd <- "C:/Users/tomah/OneDrive/Desktop/simpath"
+wd <- "C:\\Users\\tomah\\OneDrive\\Documents\\GitHub\\ALPS-Bayesian-Pathway-Analysis\\simpath"
 setwd(wd)
 
 # import observed (but scrambled) ProBe CaRe cohort genotype data
@@ -64,19 +64,14 @@ scale.t <- linpred*lambda.t
 # check distribution of person-time
 ggplot(simgeno, aes(x=time)) + geom_histogram()
 
-#marginal models, with and without interactions
-mdl_marginal_int <- coxph(Surv(time,event) ~ 
-                        (cyp7 + cyp4 + 
-                         abc9 + sul3 +
-                         cyp7:cyp4 + abc9:sul3), 
-                      data=simgeno)
-summary(mdl_marginal_int)
-
 mdl_marginal_main <- coxph(Surv(time,event) ~ 
-                        (cyp7 + cyp4 + 
-                           abc9 + sul3), 
-                      data=simgeno)
+                             (abc1	+ abc2 + abc3	+ abc4 + abc5	+ abc6 + abc7	+
+                                abc8	+ abc9 + abc10 + cyp1	+ cyp2 + cyp3	+ cyp4 +
+                                cyp5	+ cyp6 + cyp7	+ cyp8 + cyp9	+ cyp10 + cyp11 +
+                                cyp12+ cyp13 + cyp14 + sul1 + sul2	+ sul3 + sul4	+
+                                sul5	+ ugt1 + ugt2	+ ugt3), 
+                           data=simgeno)
 summary(mdl_marginal_main)
 
-# write out simulated pathway data
+# write out simulated pathway data for use with ALPS
 write.csv(simgeno,file="simpath_cohort_scram.csv")
