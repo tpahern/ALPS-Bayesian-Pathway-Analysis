@@ -49,7 +49,7 @@ print(table(fssampler$distance))
 # summarize the trees
 # start by linking to sampler
 fstree$V2 <- NULL
-fstree$treeindex <- as.numeric(substr(fstree$V1,1,regexpr('\\(', fstree$V1)-1))
+fstree$treeindex <- as.numeric(row.names(fstree))
 fstree$tree <- substr(fstree$V1,regexpr('\\(',fstree$V1), nchar(fstree$V1))
 fssamplertree <- merge(fssampler,fstree,by.x="treeindex",by.y="treeindex",all.x=T,sort=F)
 
